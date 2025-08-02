@@ -144,21 +144,10 @@ device = torch.device(device_string)
 
 
 def save_experiment_data(experiment_data, log_file="2_1experiment_results.csv"):
-    """
-    保存实验数据到 CSV 文件。如果文件不存在，创建文件；否则，追加新数据。
-    
-    参数:
-    experiment_data (dict): 包含实验配置和结果的字典
-    log_file (str): 要保存的 CSV 文件的路径，默认是 'experiment_results.csv'
-    """
-    # 将字典转换为 DataFrame
     experiment_data_df = pd.DataFrame([experiment_data])
-    
-    # 如果日志文件不存在，则创建新的文件
     if not os.path.exists(log_file):
         experiment_data_df.to_csv(log_file, index=False)
     else:
-        # 如果文件存在，读取文件并追加数据
         df = pd.read_csv(log_file)
         df = pd.concat([df, experiment_data_df], ignore_index=True)
         df.to_csv(log_file, index=False)
@@ -166,7 +155,6 @@ def save_experiment_data(experiment_data, log_file="2_1experiment_results.csv"):
   # Compute time statistics
 mean_time_shift_src, std_time_shift_src, mean_time_shift_dst, std_time_shift_dst = \
   compute_time_statistics(full_data.sources, full_data.destinations, full_data.timestamps)
-# 根据 modify_coefficient 和 modify_regularization 的值来设置 middle_path1
 if args.modify_coefficient != 0 and args.modify_regularization != 0:
     middle_path1 = 'Both'
 elif args.modify_coefficient != 0 and args.modify_regularization == 0:
@@ -176,12 +164,12 @@ elif args.modify_coefficient == 0 and args.modify_regularization != 0:
 else:
     middle_path1 = 'original'
 
-# 构建模型保存路径
+
 MODEL_SAVE_PATH = f'./saved_models_back/{args.data}/{middle_path1}/{args.prefix}-{args.modify_coefficient}-{args.modify_regularization}-{BATCH_SIZE}-{args.data}.pth'
 get_checkpoint_path = lambda epoch: f'./saved_checkpoints/{args.prefix}-{args.modify_coefficient}-{args.modify_regularization}-{BATCH_SIZE}-{args.data}-{epoch}.pth'
 os.makedirs('saved_models_back', exist_ok=True)
 os.makedirs(os.path.join('saved_models_back', args.data), exist_ok=True)
-# 然后在 {args.data} 下创建 {middle_path1} 目录
+
 os.makedirs(os.path.join('saved_models_back', args.data, middle_path1), exist_ok=True)
 for i in range(args.n_runs):
   # results_path = "results/{}_{}.pkl".format(args.prefix, i) if i > 0 else "results/{}.pkl".format(args.prefix)
