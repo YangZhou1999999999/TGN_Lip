@@ -117,21 +117,10 @@ def name_date(model_file):
     return [batch_size, modify_coefficient, modify_regularization]
 
 def save_experiment_data(experiment_data, log_file="reddit_supervised_results.csv"):
-    """
-    保存实验数据到 CSV 文件。如果文件不存在，创建文件；否则，追加新数据。
-    
-    参数:
-    experiment_data (dict): 包含实验配置和结果的字典
-    log_file (str): 要保存的 CSV 文件的路径，默认是 'experiment_results.csv'
-    """
-    # 将字典转换为 DataFrame
     experiment_data_df = pd.DataFrame([experiment_data])
-    
-    # 如果日志文件不存在，则创建新的文件
     if not os.path.exists(log_file):
         experiment_data_df.to_csv(log_file, index=False)
     else:
-        # 如果文件存在，读取文件并追加数据
         df = pd.read_csv(log_file)
         df = pd.concat([df, experiment_data_df], ignore_index=True)
         df.to_csv(log_file, index=False)
