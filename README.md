@@ -78,13 +78,11 @@ python train_self_supervised.py \
 If you use this code in your research, please cite:
 
 ```bibtex
-@article{zhou2025batch,
-  title={Batch-agnostic dynamic GNN for mitigating temporal discontinuity},
-  author={Zhou, Yang and Ren, Xiaoning and He, Jing},
-  journal={Neurocomputing},
-  pages={131447},
-  year={2025},
-  publisher={Elsevier}
+@article{zhou2025robust,
+  title={Robust OOD Graph Learning via Mean Constraints and Noise Reduction},
+  author={Zhou, Yang and Ren, Xiaoning},
+  journal={arXiv preprint arXiv:2506.19281},
+  year={2025}
 }
 ```
 
