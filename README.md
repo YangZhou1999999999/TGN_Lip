@@ -90,7 +90,6 @@ If you use this code in your research, please cite:
 
 ## References
 
-- [Batch-agnostic dynamic GNN for mitigating temporal discontinuity](https://arxiv.org/abs/2301.05213)
 - [Temporal Graph Networks for Deep Learning on Dynamic Graphs (ICLR 2020)](https://arxiv.org/abs/2006.10637)
 - [Lipschitz Neural Networks](https://arxiv.org/abs/1805.05957)
 - Related work on dynamic representation learning and temporal stability in evolving graphs
