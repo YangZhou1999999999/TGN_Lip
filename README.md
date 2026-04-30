@@ -50,27 +50,6 @@ TGN_Lip/
 - tqdm
 - scikit-learn (for evaluation metrics)
 
-## Installation
-
-### Setup
-
-```bash
-# Clone the repository
-git clone https://github.com/YangZhou1999999999/TGN_Lip.git
-cd TGN_Lip
-
-# Install dependencies
-pip install -r requirements.txt
-```
-
-## Dataset
-
-This project uses the **JODIE benchmark dataset** for evaluation.
-
-**Dataset Source:** [JODIE - Stanford SNAP](http://snap.stanford.edu/jodie/)
-
-The dataset contains temporal graphs representing dynamic interactions. Please download and place the dataset in the appropriate directory before running the training scripts.
-
 ## Training
 
 ### Supervised Training
@@ -89,27 +68,6 @@ python train_self_supervised.py \
     --modify_regularization 0.01
 ```
 
-## Configuration Parameters
-
-Key hyperparameters for tuning:
-
-| Parameter | Description | Default |
-|-----------|-------------|---------|
-| `modify_coefficient` | Coefficient for modifying attention weights | 0.1 |
-| `modify_regularization` | Coefficient controlling the Lipschitz regularization strength | 0.01 |
-| `batch_size` | Training batch size | 32 |
-| `num_epochs` | Number of training epochs | 50 |
-| `learning_rate` | Initial learning rate | 0.001 |
-
-## Evaluation
-
-Run the evaluation utilities to assess model performance:
-
-```bash
-python -m evaluation.evaluate \
-    --model_path ./checkpoints/best_model.pt \
-    --dataset jodie
-```
 
 ## Results
 
@@ -120,11 +78,13 @@ python -m evaluation.evaluate \
 If you use this code in your research, please cite:
 
 ```bibtex
-@software{yangzhou_tgn_lip,
-  author = {Yang Zhou},
-  title = {TGN_Lip: Utilizing Lipschitz Bound to Mitigate Temporal Discontinuity in Dynamic Graph Neural Networks},
-  year = {2025},
-  url = {https://github.com/YangZhou1999999999/TGN_Lip}
+@article{zhou2025batch,
+  title={Batch-agnostic dynamic GNN for mitigating temporal discontinuity},
+  author={Zhou, Yang and Ren, Xiaoning and He, Jing},
+  journal={Neurocomputing},
+  pages={131447},
+  year={2025},
+  publisher={Elsevier}
 }
 ```
 
