@@ -58,8 +58,8 @@ python train_self_supervised.py
 ```
 ## Parameters
 Key parameters include:
-- modify_coefficient: coefficient used to modify the attention model dimension d_k
-- modify_regularization: coefficient used to control the regularization term
+- `modify_coefficient`: coefficient used to modify the attention coefficient
+- `modify_regularization`: coefficient used to control the regularization term
 
 ## Research Motivation
 This project is related to:
